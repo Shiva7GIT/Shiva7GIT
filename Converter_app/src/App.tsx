@@ -8,7 +8,6 @@ import ConversionSelect from './components/ConversionSelect';
 import { ConversionType } from './types/types';
 import { conversionContext } from './context/conversionContext';
 import ConversionForm from './components/ConversionForm';
-// import '../src/components/ConversionSelect.css'
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
