@@ -1,0 +1,70 @@
+styles.css
+
+/* Center everything using Flexbox */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 10;
+  }
+  
+  /* Add styling to the container div with red and yellow gradients */
+  div {
+    padding: 0px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #8566ff, #ffcc00);
+    text-align: center; /* Center text horizontally within the div */
+    margin: 0 auto; /* Center the div horizontally */
+  }
+  
+  /* Style the label for better readability with a slight shadow effect */
+  label {
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    color: rgb(6, 6, 6);
+  }
+  
+  /* Style the select container for positioning */
+  .select-container {
+    position: relative;
+  }
+  
+  /* Style the select element with a red and yellow gradient */
+  select {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #060606;
+    border-radius: 4px;
+    width: 100%;
+    font-size: large;
+    background: linear-gradient(to right, #b866ff, #ffcc00);
+    color: rgb(3, 3, 3);
+    appearance: none; /* Remove default styling on some browsers */
+  }
+  
+  /* Style the arrow icon for the select element */
+  .select-container::after {
+    content: '\25BC'; /* Unicode character for a down-pointing triangle */
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+  
+  /* Style the Cities.Provider container with a red and yellow gradient */
+  .Cities-Provider {
+    margin-top: 20px;
+    background: linear-gradient(to right, #8566ff, #ffcc00);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Style the selected option text color */
+  select option:checked {
+    background-color: #ffcc00;
+    color: #333; /* Set the text color to a readable color */
+  }
+  
