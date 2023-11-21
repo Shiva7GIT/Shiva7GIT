@@ -2,7 +2,7 @@ import * as React from "react";
 import { ConversionType } from "../types/types";
 import { allConversions } from "../store/conversionStore";
 import { Container, Box, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material";
-// import './ConversionSelect.css'
+
 const ConversionSelect=({name, onConversionChange}: {name:string, onConversionChange: (conversionType: ConversionType) => void }) => {
     const conversions = React.useMemo(allConversions, []);
     
