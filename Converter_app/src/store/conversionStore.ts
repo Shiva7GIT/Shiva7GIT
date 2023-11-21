@@ -20,20 +20,16 @@ export function allConversions(): ConversionType[] {
     return Object.keys(ConversionTypeStore) as ConversionType[];
 }
 
-export function allConverionUnits(conversion: ConversionType){
+export function allConversionUnits(conversion: ConversionType){
     return Object.values(ConversionTypeStore[conversion]);
 }
 
 
 export function conversionValue(conversion: ConversionType, from: string, to: string, input : number){
-    if (!conversion) return (0);
-    if (!from) return (0);
-    if (!to) return (0);
-    if (!input) return (0);
 
     if(conversion == 'TemperatureUnit')
     {
-        if(from == 'celsius')
+        if((from == 'celsius')&&(to == 'fahrenheit'))
         return 5/9*(input-32);
         else 
         return input * (9/5)+32;

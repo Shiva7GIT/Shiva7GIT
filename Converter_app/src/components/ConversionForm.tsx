@@ -1,22 +1,22 @@
 import { useContext, useState, useMemo } from "react";
 import { conversionContext } from "../context/conversionContext";
-import { Grid, Paper,TextField } from "@mui/material";
+import { Grid, Paper} from "@mui/material";
 import UnitSelect from "./UnitSelect";
-import { allConverionUnits } from "../store/conversionStore";
+import { allConversionUnits, conversionValue } from "../store/conversionStore";
 import { ConversionType } from "../types/types";
-import ValueCalculator from "./Result";
+// import ValueCalculator from "./Result";
 
 export default function ConversionForm() {
     const {selectedConversion} = useContext(conversionContext);
 
-    const [fromUnit, setFromUnit] = useState('');
-    const [toUnit, setToUnit] = useState('');
-    const [input, setInput] = useState(0);
+    const [fromUnit, setFromUnit] = useState<string>('');
+    const [toUnit, setToUnit] = useState<string>('');
+    const [fromField, setFromField] = useState<number>(0);
+    const [toField, setToField] = useState<number>(0);
 
     const units = useMemo(() => {
-        return selectedConversion ? allConverionUnits(selectedConversion as ConversionType): [];
+        return selectedConversion ? allConversionUnits(selectedConversion as ConversionType): [];
     }, [selectedConversion])
-
     // const canShowValue = useMemo(() => {
     //     return selectedConversion && fromUnit && toUnit;
     // }, [fromUnit, toUnit]);
@@ -28,27 +28,30 @@ export default function ConversionForm() {
     function handleToUnitChange(unit: string) {
         setToUnit(unit);
     }
-
-    function handleInputChange(event:any) {
-        setInput(event.target.value);
+    function handleFromFieldChange(field: number) {
+        setFromField(field);
     }
+    function handleToFieldChange(field: number) {
+        setToField(field);
+    }
+    const value1 = useMemo(() => conversionValue(selectedConversion as ConversionType,fromUnit,toUnit,fromField),[selectedConversion,fromUnit,toUnit,fromField]);
+    const value2 = useMemo(() => conversionValue(selectedConversion as ConversionType,toUnit,fromUnit,toField),[selectedConversion,toUnit,fromUnit,toField]);
 
     return(
         <Paper>
             <Grid container spacing={1}>
+               
                 <Grid item xs={6}>
-                        <TextField id="outlined-basic" label="Enter" variant="outlined" type="number" onChange={handleInputChange} />
+                    <UnitSelect label="From" units={units} selected={fromUnit} onUnitChange={handleFromUnitChange} field={value2} onFieldChange={handleFromFieldChange}></UnitSelect>  
                 </Grid>
+               
                 <Grid item xs={6}>
-                        <UnitSelect label="To" units={units} selected={toUnit} onUnitChange={handleToUnitChange}></UnitSelect>
-                </Grid>
-                <Grid item xs={6}>
-                        <ValueCalculator conversion={selectedConversion as ConversionType} from={fromUnit} to={toUnit} input={input}></ValueCalculator> 
-                </Grid>
-                <Grid item xs={6}>
-                        <UnitSelect label="From" units={units} selected={fromUnit} onUnitChange={handleFromUnitChange}></UnitSelect> 
+                    <UnitSelect label="To" units={units} selected={toUnit} onUnitChange={handleToUnitChange} field={value1} onFieldChange={handleToFieldChange}></UnitSelect>         
                 </Grid>
             </Grid>
         </Paper>
     )
 }
+{/* <Grid item xs={6}>
+<ValueCalculator conversion={selectedConversion as ConversionType} from={fromUnit} to={toUnit} input={input}></ValueCalculator> 
+</Grid> */}
