@@ -1,9 +1,8 @@
-// EmployForm.tsx
 import { useState } from 'react';
 import { Button, MenuItem, Select, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import Employ from '../interface/interface';
-
+import Employ from '../types/interface';
+import departments from '../types/departmentModel';
 interface EmployFormProps {
   onAddEmploy: (newEmploy: Employ) => void;
   employees: Employ[];
@@ -16,7 +15,7 @@ const EmployForm = ({ onAddEmploy, employees }: EmployFormProps) => {
 
   const handleAddEmploy = () => {
     const newEmploy: Employ = {
-      id: Math.max(0, ...employees.map((employ) => employ.id)) + 1, // Ensure id starts from 1
+      id: Math.max(0, ...employees.map((employ) => employ.id)) + 1,
       name,
       department,
       salary,
@@ -42,9 +41,11 @@ const EmployForm = ({ onAddEmploy, employees }: EmployFormProps) => {
         onChange={(e) => setDepartment(e.target.value as string)}
         style={{ marginLeft: '10px', width: '150px' }}
       >
-         <MenuItem value="IT">IT</MenuItem>
-        <MenuItem value="HR">HR</MenuItem>
-        <MenuItem value="Finance">Finance</MenuItem>
+        {departments.map((dep) => (
+          <MenuItem key={dep} value={dep}>
+            {dep}
+          </MenuItem>
+        ))}
       </Select>
       <TextField
         label="Salary"

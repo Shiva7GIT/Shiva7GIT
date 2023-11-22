@@ -1,6 +1,6 @@
 
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button, IconButton } from '@mui/material';
-import Employ from '../interface/interface';
+import Employ from '../types/interface';
 import DeleteIcon from '@mui/icons-material/Delete'
 interface EmployDetailsProps {
   employDetails: Employ[];
