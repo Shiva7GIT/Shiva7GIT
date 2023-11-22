@@ -1,0 +1,134 @@
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #605d5d);
+  }
+  html, body {
+    height: 100%;
+  }
+  h1 {
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    background: #343434;
+    margin: 0;
+    border-radius: 10px;
+    text-shadow: 0 0 10px #fcfcfc;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .popup {
+    position: relative;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+  }
+  
+  button {
+    padding: 10px;
+    background: #e8e3e3;
+    color: #060606;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  
+  .accounts-table-container {
+    position: relative;
+    
+  }
+  
+  .accounts-table-container table {
+    width: 100%;
+    margin-top: 20px;
+    
+    
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: centre;
+  }
+  
+  th {
+    background: #333333;
+    color: #ffffff;
+    
+  }
+  td {
+    background: #817e7e;
+    color: #ffffff;
+    
+  }
+  .table {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 10px solid #cccccc;
+  }
+  
+  .table th {
+    background: #333333;
+    color: #ffffff;
+    
+  }
+  .error {
+    color: #ff0000;
+  }
+  
+  button.active {
+    top: 10px;
+    right: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  button.closef-btn {
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #060606;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  button:hover {
+    background-color: #040404; 
+    box-shadow: 0 0 30px rgb(33, 32, 32); 
+    color: #ffffff;
+  }
