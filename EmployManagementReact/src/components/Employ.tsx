@@ -50,7 +50,6 @@ const EmployForm = ({ onAddEmploy, employees }: EmployFormProps) => {
       <TextField
         label="Salary"
         variant="outlined"
-        type="number"
         value={salary}
         onChange={(e) => setSalary(Number(e.target.value))}
         style={{ marginLeft: '10px', width: '100px' }}

@@ -61,7 +61,8 @@ const App = () => {
     <div>
       <DenseAppBar />
       <EmployForm onAddEmploy={handleAddEmployee} employees={employees} />
-      <EmployDetails employDetails={employees} onDeleteEmploy={handleDeleteEmployee} />
+      {employees.length && <EmployDetails employDetails={employees} onDeleteEmploy={handleDeleteEmployee} />}
+      
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
