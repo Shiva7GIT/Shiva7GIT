@@ -81,8 +81,11 @@ const App = () => {
       <EmployForm onAddEmploy={handleAddEmployee} employees={employees} />
       {employees.length >0 && (<EmployDetails employDetails={employees} onDeleteEmploy={handleDeleteEmployee} onUpdateEmploy={handleUpdateEmployee} />)}
 
-      {loading && <CircularProgress style={{ justifyContent:'center', display : 'flex'}} />}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+         {loading && <CircularProgress />}
+         {error && <p style={{ color: 'red' }}>{error}</p>}
+      </div>
+
     </div>
   );
 };
