@@ -3,7 +3,7 @@ import EmployForm from '../src/components/Employ';
 import EmployDetails from '../src/components/EmployDetails';
 import DenseAppBar from '../src/components/Header';
 import CircularProgress from '@mui/material/CircularProgress';
-import Employ from './types/interface';
+import Employ from './components/types/interface';
 import axios from 'axios';
 
 const App = () => {
@@ -81,7 +81,7 @@ const App = () => {
       <EmployForm onAddEmploy={handleAddEmployee} employees={employees} />
       {employees.length >0 && (<EmployDetails employDetails={employees} onDeleteEmploy={handleDeleteEmployee} onUpdateEmploy={handleUpdateEmployee} />)}
 
-      {loading && <CircularProgress />}
+      {loading && <CircularProgress style={{ justifyContent:'center', display : 'flex'}} />}
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );

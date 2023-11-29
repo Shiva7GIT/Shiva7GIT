@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Avatar, Button, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import Employ from '../types/interface';
+import Employ from './types/interface';
 import UpdateForm from './EmployUpdate';
 
 

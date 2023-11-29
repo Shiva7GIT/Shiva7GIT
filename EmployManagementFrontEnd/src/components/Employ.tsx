@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Button, MenuItem, Select, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import Employ from '../types/interface';
-import departments from '../types/departmentModel';
+import Employ from './types/interface';
+import departments from './types/departmentModel';
 interface EmployFormProps {
   onAddEmploy: (newEmploy: Employ) => void;
   employees: Employ[];

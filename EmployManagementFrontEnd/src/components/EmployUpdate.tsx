@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, MenuItem, Select, TextField } from '@mui/material';
-import Employ from '../types/interface';
-import departments from '../types/departmentModel';
+import Employ from './types/interface';
+import departments from './types/departmentModel';
 import Avatar from '@mui/material/Avatar';
 import { deepPurple } from '@mui/material/colors';
 
