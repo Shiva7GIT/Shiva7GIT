@@ -1,5 +1,4 @@
-// UpdateForm.tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, MenuItem, Select, TextField } from '@mui/material';
 import Employ from '../types/interface';
 import departments from '../types/departmentModel';
@@ -11,7 +10,7 @@ interface UpdateFormProps {
   employee: Employ;
 }
 
-const UpdateForm: React.FC<UpdateFormProps> = ({ onUpdateEmployee, employee }) => {
+const UpdateForm = ({ onUpdateEmployee, employee }:UpdateFormProps) => {
   const [updatedName, setUpdatedName] = useState<string>(employee.name);
   const [updatedDepartment, setUpdatedDepartment] = useState<string>(employee.department);
   const [updatedSalary, setUpdatedSalary] = useState<number>(employee.salary);
