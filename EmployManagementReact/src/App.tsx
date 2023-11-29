@@ -2,6 +2,7 @@ import { useEffect, useState} from 'react';
 import EmployForm from '../src/components/Employ';
 import EmployDetails from '../src/components/EmployDetails';
 import DenseAppBar from '../src/components/Header';
+import CircularProgress from '@mui/material/CircularProgress';
 import Employ from './types/interface';
 import axios from 'axios';
 
@@ -80,7 +81,7 @@ const App = () => {
       <EmployForm onAddEmploy={handleAddEmployee} employees={employees} />
       {employees.length >0 && (<EmployDetails employDetails={employees} onDeleteEmploy={handleDeleteEmployee} onUpdateEmploy={handleUpdateEmployee} />)}
 
-      {loading && <p>Loading...</p>}
+      {loading && <CircularProgress />}
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );
