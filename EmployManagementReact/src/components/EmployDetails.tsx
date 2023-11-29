@@ -4,7 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Employ from '../types/interface';
 import UpdateForm from './EmployUpdate';
-import EmployForm from './Employ';
+
 
 interface EmployDetailsProps {
   employDetails: Employ[];
