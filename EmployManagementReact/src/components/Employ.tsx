@@ -25,6 +25,8 @@ const EmployForm = ({ onAddEmploy, employees }: EmployFormProps) => {
     setDepartment('');
     setSalary(0);
   };
+  
+  
 
   return (
     <div style={{ marginTop: '30px', marginBottom: '20px', textAlign: 'center' }}>

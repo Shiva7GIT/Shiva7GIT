@@ -30,6 +30,16 @@ class EmployController {
       res.status(500).json({ error: error.message || 'Internal Server Error' });
     }
   }
+  async updateEmployee(req : Request,res : Response){
+    try{
+      const id = Number(req.params.id);
+      const updatedEmployeeData = req.body;
+      const updatedEmployee = await EmployService.updateEmploy(id, updatedEmployeeData)
+      res.json(updatedEmployee)
+    } catch (error:any){
+      res.status(500).json({ error : error.message || 'Internel Server error'})
+    }
+  }
 }
 
 export default new EmployController();

@@ -57,12 +57,29 @@ const App = () => {
     fetchEmployees()
   };
 
+  const handleUpdateEmployee = async (id: number, updatedEmployee: Employ) => {
+    try {
+      setLoading(true);
+      const response = await axios.put(`http://localhost:5000/updateEmploy/${id}`, updatedEmployee);
+      const updatedEmployeeData = response.data;
+      setEmployees((prevEmployees) =>
+        prevEmployees.map((employee) => (employee.id === id ? updatedEmployeeData : employee))
+      );
+    } catch (error: any) {
+      setError('Error updating employee');
+      console.error('Error updating employee:', error.message);
+    } finally {
+      setLoading(false);
+    }
+    fetchEmployees();
+  };
+
   return (
     <div>
       <DenseAppBar />
       <EmployForm onAddEmploy={handleAddEmployee} employees={employees} />
-      {employees.length && <EmployDetails employDetails={employees} onDeleteEmploy={handleDeleteEmployee} />}
-      
+      {employees.length >0 && (<EmployDetails employDetails={employees} onDeleteEmploy={handleDeleteEmployee} onUpdateEmploy={handleUpdateEmployee} />)}
+
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>

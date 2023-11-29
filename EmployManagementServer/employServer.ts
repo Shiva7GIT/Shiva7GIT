@@ -12,7 +12,7 @@ app.use(express.json());
 app.get('/employees', employController.getAllEmployees.bind(employController));
 app.post('/createEmploy', employController.addEmployee.bind(employController));
 app.delete('/deleteEmploy/:id', employController.deleteEmployee.bind(employController));
-
+app.put('/updateEmploy/:id' , employController.updateEmployee.bind(employController))
 
 app.listen(port,()=>{
     console.log('server running')

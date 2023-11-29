@@ -25,6 +25,23 @@ class EmployService {
       throw new Error('Error deleting employee');
     }
   }
+  async updateEmploy(id:number,updatedEmployeeData : Employ){
+    try{
+      const result =await EmployModel.updateOne(
+        {id : id },
+        {$set : updatedEmployeeData}
+      );
+
+      if (result.modifiedCount === 0){
+        throw new Error('Employ not found or no changes made')
+      }
+
+      return await EmployModel.findOne({ id: id });
+
+    } catch(error) {
+      throw new Error('Error updating employee');
+    }
+  }
 }
 
 export default new EmployService();
