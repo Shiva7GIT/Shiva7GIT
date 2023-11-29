@@ -1,45 +1,47 @@
-import { Request, Response } from 'express';
-import EmployService from '../service/employService';
+import express, { Request, Response,Router } from 'express';
+import {getAllEmployees, addEmployee,deleteEmployee,updateEmploy,}from '../service/EmployService';
+const app = express();
+const router = express.Router();
 
-class EmployController {
-  async getAllEmployees(req: Request, res: Response){
+  router.get('/employees', async (req: Request, res: Response) => {
     try {
-      const employees = await EmployService.getAllEmployees();
+      const employees = await getAllEmployees();
       res.json(employees);
-    } catch (error:any) {
+    } catch (error: any) {
       res.status(500).json({ error: error.message || 'Internal Server Error' });
     }
-  }
+  });
 
-  async addEmployee(req: Request, res: Response){
+  router.post('/createEmploy', async (req: Request, res: Response) => {
     try {
       const newEmployee = req.body;
-      const addedEmployee = await EmployService.addEmployee(newEmployee);
+      const addedEmployee = await addEmployee(newEmployee);
       res.status(201).json(addedEmployee);
-    } catch (error:any) {
+    } catch (error: any) {
       res.status(500).json({ error: error.message || 'Internal Server Error' });
     }
-  }
+  });
 
-  async deleteEmployee(req: Request, res: Response){
+ router.delete('/deleteEmploy/:id', async (req: Request, res: Response) => {
     try {
-      const id = Number(req.params.id)
-      await EmployService.deleteEmployee(id);
+      const id = Number(req.params.id);
+      await deleteEmployee(id);
       res.status(204).send();
-    } catch (error:any) {
+    } catch (error: any) {
       res.status(500).json({ error: error.message || 'Internal Server Error' });
     }
-  }
-  async updateEmployee(req : Request,res : Response){
-    try{
+  });
+
+  router.put('/updateEmploy/:id', async (req: Request, res: Response) => {
+    try {
       const id = Number(req.params.id);
       const updatedEmployeeData = req.body;
-      const updatedEmployee = await EmployService.updateEmploy(id, updatedEmployeeData)
-      res.json(updatedEmployee)
-    } catch (error:any){
-      res.status(500).json({ error : error.message || 'Internel Server error'})
+      const updatedEmployee = await updateEmploy(id, updatedEmployeeData);
+      res.json(updatedEmployee);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message || 'Internal Server Error' });
     }
-  }
-}
+  });
 
-export default new EmployController();
+  export{ router};
+  

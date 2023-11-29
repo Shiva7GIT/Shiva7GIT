@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import employController from './controller/employController';
+import { router } from './controller/employController';
 
 const app = express();
 const port = 5000;
@@ -9,10 +9,7 @@ const port = 5000;
 app.use(cors());
 app.use(express.json());
 
-app.get('/employees', employController.getAllEmployees.bind(employController));
-app.post('/createEmploy', employController.addEmployee.bind(employController));
-app.delete('/deleteEmploy/:id', employController.deleteEmployee.bind(employController));
-app.put('/updateEmploy/:id' , employController.updateEmployee.bind(employController))
+app.use(router)
 
 app.listen(port,()=>{
     console.log('server running')
