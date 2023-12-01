@@ -27,6 +27,10 @@ const UpdateForm = ({ onUpdateEmployee, employee }:UpdateFormProps) => {
   };
 
   return (
+    <>
+    <div style={{ textAlign: 'center', display : 'flex', justifyContent : 'center'}}>
+      <h4>Edit Employ Here</h4>
+    </div>
     <div style={{ marginTop: '30px', marginBottom: '20px', textAlign: 'center', display : 'flex', justifyContent : 'center'}}>
       
       <Avatar sx={{ bgcolor: deepPurple[500], marginTop :'8px'}}>{employee.id}</Avatar>
@@ -59,9 +63,10 @@ const UpdateForm = ({ onUpdateEmployee, employee }:UpdateFormProps) => {
         style={{ marginLeft: '10px', width: '100px' }}
       />
       <Button variant="contained" onClick={handleUpdate} style={{ marginLeft: '10px' }}>
-        Update
+        Edit
       </Button>
     </div>
+    </>
   );
 };
 

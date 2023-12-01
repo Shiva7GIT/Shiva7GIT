@@ -36,7 +36,7 @@ const EmployDetails: React.FC<EmployDetailsProps> = ({ employDetails, onUpdateEm
                 <TableCell>Department</TableCell>
                 <TableCell>Salary</TableCell>
                 <TableCell>Delete</TableCell>
-                <TableCell>Update</TableCell>
+                <TableCell>Edit</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
